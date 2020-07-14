@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using InvoiceManagementApp2.Infrastructur;
+using InvoiceManagementApp2.Application.Common.Interfaces;
+using InvoiceManagementApp2.Api.Services;
 
 namespace InvoiceManagementApp2.Api
 {
@@ -38,6 +40,7 @@ namespace InvoiceManagementApp2.Api
             //services.AddAuthentication()
             //    .AddIdentityServerJwt();
             services.AddInfrastructur(Configuration);
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
